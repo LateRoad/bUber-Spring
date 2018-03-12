@@ -42,12 +42,12 @@ public class CarController {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         if (login != null) {
-            return fakeCars.entrySet()
+            return fakeCars.values()
                     .stream()
-                    .filter(map -> login.equals(map.getValue().getLogin()))
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    .filter(car -> login.equals(car.getLogin()))
+                    .collect(Collectors.toList());
         } else {
-            return fakeCars;
+            return fakeCars.values();
         }
     }
 

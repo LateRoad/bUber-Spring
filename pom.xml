@@ -8,7 +8,7 @@
     <version>0.0.1</version>
 
     <name>bUber</name>
-    <description>ToDo</description>
+    <description>Taxi platform</description>
 
     <properties>
         <java.version>1.8</java.version>

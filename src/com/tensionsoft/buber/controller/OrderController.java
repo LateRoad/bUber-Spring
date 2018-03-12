@@ -53,19 +53,19 @@ public class OrderController {
         }
         if (login != null && role != null) {
             if (role.equals(UserRole.CLIENT)) {
-                return fakeOrders.entrySet()
+                return fakeOrders.values()
                         .stream()
-                        .filter(map -> login.equals(map.getValue().getClientLogin()))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                        .filter(value -> login.equals(value.getClientLogin()))
+                        .collect(Collectors.toList());
 
             } else if (role.equals(UserRole.DRIVER)) {
-                return fakeOrders.entrySet()
+                return fakeOrders.values()
                         .stream()
-                        .filter(map -> login.equals(map.getValue().getDriverLogin()))
-                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                        .filter(order -> login.equals(order.getDriverLogin()))
+                        .collect(Collectors.toList());
             }
         } else {
-            return fakeOrders;
+            return fakeOrders.values();
         }
         return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
     }

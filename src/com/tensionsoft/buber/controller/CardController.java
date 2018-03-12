@@ -42,13 +42,13 @@ public class CardController {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         if (login != null) {
-            return fakeCards.entrySet()
+            return fakeCards.values()
                     .stream()
-                    .filter(map -> login.equals(map.getValue().getLogin()))
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    .filter(card -> login.equals(card.getLogin()))
+                    .collect(Collectors.toList());
 
         } else {
-            return fakeCards;
+            return fakeCards.values();
         }
     }
 
