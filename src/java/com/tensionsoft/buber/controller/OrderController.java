@@ -2,14 +2,13 @@ package com.tensionsoft.buber.controller;
 
 import com.tensionsoft.buber.Constants;
 import com.tensionsoft.buber.entity.order.Order;
-import com.tensionsoft.buber.entity.user.UserRole;
+import com.tensionsoft.buber.entity.user.Role;
 import com.tensionsoft.buber.utils.BeansUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -46,19 +45,19 @@ public class OrderController {
     }
 
     @GetMapping
-    public Object read(@RequestParam(value = "login", required = false) String login,
-                       @RequestParam(value = "role", required = false) UserRole role) {
+    public Object read(@RequestParam(value = "driverLogin", required = false) String login,
+                       @RequestParam(value = "role", required = false) Role role) {
         if (fakeOrders.size() == 0) {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         if (login != null && role != null) {
-            if (role.equals(UserRole.CLIENT)) {
+            if (role.getName().equals("CLIENT")) {
                 return fakeOrders.values()
                         .stream()
                         .filter(value -> login.equals(value.getClientLogin()))
                         .collect(Collectors.toList());
 
-            } else if (role.equals(UserRole.DRIVER)) {
+            } else if (role.getName().equals("DRIVER")) {
                 return fakeOrders.values()
                         .stream()
                         .filter(order -> login.equals(order.getDriverLogin()))

@@ -20,16 +20,16 @@ public class UserController {
     }
 
     private void init() {
-        fakeUsers.put(Constants.fakeKatya.getLogin(), Constants.fakeKatya);
-        fakeUsers.put(Constants.fakeYan.getLogin(), Constants.fakeYan);
-        fakeUsers.put(Constants.fakeRoma.getLogin(), Constants.fakeRoma);
+        fakeUsers.put(Constants.fakeKatya.getUsername(), Constants.fakeKatya);
+        fakeUsers.put(Constants.fakeYan.getUsername(), Constants.fakeYan);
+        fakeUsers.put(Constants.fakeRoma.getUsername(), Constants.fakeRoma);
     }
 
 
     @PostMapping
     public void create(@RequestParam(value = "user") User user) {
-        if (user != null && user.getLogin() != null) {
-            fakeUsers.put(user.getLogin(), user);
+        if (user != null && user.getUsername() != null) {
+            fakeUsers.put(user.getUsername(), user);
         }
     }
 

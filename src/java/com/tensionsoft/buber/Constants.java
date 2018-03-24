@@ -7,7 +7,6 @@ import com.tensionsoft.buber.entity.order.Order;
 import com.tensionsoft.buber.entity.user.ClientStatus;
 import com.tensionsoft.buber.entity.user.DriverStatus;
 import com.tensionsoft.buber.entity.user.User;
-import com.tensionsoft.buber.entity.user.UserRole;
 
 
 import java.sql.Date;
@@ -36,6 +35,7 @@ public class Constants {
     public static Card fakeCard1 = new Card();
     public static Card fakeCard2 = new Card();
 
+    //Location
     static {
         fakeLocation0.setId(0L);
         fakeLocation0.setLatitude("53.123");
@@ -62,10 +62,10 @@ public class Constants {
         fakeLocation5.setLongitude("40.50");
     }
 
+    //User
     static {
         fakeKatya.setId(0L);
-        fakeKatya.setLogin("wcrtch");
-        fakeKatya.setRole(UserRole.CLIENT);
+        fakeKatya.setUsername("wcrtch");
         fakeKatya.setName("Katya");
         fakeKatya.setSurname("Nesterova");
         fakeKatya.setLastname("Koteikina");
@@ -79,8 +79,7 @@ public class Constants {
         fakeKatya.setIsOnline(true);
 
         fakeYan.setId(1L);
-        fakeYan.setLogin("galadopter");
-        fakeYan.setRole(UserRole.DRIVER);
+        fakeYan.setUsername("galadopter");
         fakeYan.setName("Yan");
         fakeYan.setSurname("Schneider");
         fakeYan.setLastname("Alexandrovich");
@@ -94,8 +93,7 @@ public class Constants {
         fakeYan.setIsOnline(true);
 
         fakeRoma.setId(2L);
-        fakeRoma.setLogin("lateroad");
-        fakeRoma.setRole(UserRole.ADMIN);
+        fakeRoma.setUsername("lateroad");
         fakeRoma.setName("Roman");
         fakeRoma.setSurname("Pozdnyakov");
         fakeRoma.setLastname("Yurievich");
@@ -103,9 +101,10 @@ public class Constants {
         fakeRoma.setIsOnline(true);
     }
 
+    //Order
     static {
         fakeOrder0.setId(0L);
-        fakeOrder0.setClientLogin(fakeKatya.getLogin());
+        fakeOrder0.setClientLogin(fakeKatya.getUsername());
         fakeOrder0.setDriverLogin("galadopter");
         fakeOrder0.setOrigin(fakeKatya.getLocation());
         fakeOrder0.setDestination(fakeLocation2);
@@ -115,7 +114,7 @@ public class Constants {
 
 
         fakeOrder1.setId(1L);
-        fakeOrder1.setClientLogin(fakeKatya.getLogin());
+        fakeOrder1.setClientLogin(fakeKatya.getUsername());
         fakeOrder1.setDriverLogin("galadopter");
         fakeOrder1.setOrigin(fakeLocation2);
         fakeOrder1.setDestination(fakeLocation4);
@@ -124,7 +123,7 @@ public class Constants {
         fakeOrder1.setStatus(Order.OrderStatus.DONE);
 
         fakeOrder2.setId(2L);
-        fakeOrder2.setClientLogin(fakeKatya.getLogin());
+        fakeOrder2.setClientLogin(fakeKatya.getUsername());
         fakeOrder2.setDriverLogin("galadopter");
         fakeOrder2.setOrigin(fakeLocation4);
         fakeOrder2.setDestination(fakeLocation5);
@@ -133,31 +132,36 @@ public class Constants {
         fakeOrder2.setStatus(Order.OrderStatus.ACCEPTED);
     }
 
+    //Car
     static {
         fakeCar0.setId(0L);
-        fakeCar0.setLogin(fakeYan.getLogin());
+        fakeCar0.setDriverLogin(fakeYan.getUsername());
         fakeCar0.setCarNumber("7777-7");
 
         fakeCar1.setId(1L);
-        fakeCar1.setLogin(fakeYan.getLogin());
+        fakeCar1.setDriverLogin(fakeYan.getUsername());
         fakeCar1.setCarNumber("0000-87");
 
         fakeCar2.setId(2L);
-        fakeCar2.setLogin(fakeYan.getLogin());
+        fakeCar2.setDriverLogin(fakeYan.getUsername());
         fakeCar2.setCarNumber("pidor-7");
     }
 
+    //Card
     static {
         fakeCard0.setId(0L);
-        fakeCard0.setLogin(fakeYan.getLogin());
+        fakeCard0.setLogin(fakeYan.getUsername());
         fakeCard0.setHashNumber("67aads21edsa");
+        fakeCard0.setLastDigits("3245");
 
         fakeCard1.setId(1L);
-        fakeCard1.setLogin(fakeYan.getLogin());
+        fakeCard1.setLogin(fakeYan.getUsername());
         fakeCard1.setHashNumber("6eqd82qhdkaj");
+        fakeCard1.setLastDigits("0021");
 
         fakeCard2.setId(2L);
-        fakeCard2.setLogin(fakeYan.getLogin());
+        fakeCard2.setLogin(fakeYan.getUsername());
         fakeCard2.setHashNumber("9aijdihwq8sd");
+        fakeCard2.setLastDigits("4322");
     }
 }

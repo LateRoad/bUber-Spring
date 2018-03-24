@@ -2,14 +2,12 @@ package com.tensionsoft.buber.controller;
 
 import com.tensionsoft.buber.Constants;
 import com.tensionsoft.buber.entity.Car;
-import com.tensionsoft.buber.entity.Card;
 import com.tensionsoft.buber.utils.BeansUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -37,14 +35,14 @@ public class CarController {
     }
 
     @GetMapping
-    public Object read(@RequestParam(value = "login", required = false) String login) {
+    public Object read(@RequestParam(value = "driverLogin", required = false) String login) {
         if (fakeCars.size() == 0) {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         if (login != null) {
             return fakeCars.values()
                     .stream()
-                    .filter(car -> login.equals(car.getLogin()))
+                    .filter(car -> login.equals(car.getDriverLogin()))
                     .collect(Collectors.toList());
         } else {
             return fakeCars.values();
