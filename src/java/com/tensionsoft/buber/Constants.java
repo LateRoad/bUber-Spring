@@ -1,12 +1,10 @@
 package com.tensionsoft.buber;
 
-import com.tensionsoft.buber.entity.Car;
-import com.tensionsoft.buber.entity.Card;
-import com.tensionsoft.buber.entity.Location;
-import com.tensionsoft.buber.entity.order.Order;
-import com.tensionsoft.buber.entity.user.ClientStatus;
-import com.tensionsoft.buber.entity.user.DriverStatus;
-import com.tensionsoft.buber.entity.user.User;
+import com.tensionsoft.buber.persistence.model.Car;
+import com.tensionsoft.buber.persistence.model.Card;
+import com.tensionsoft.buber.persistence.model.Location;
+import com.tensionsoft.buber.persistence.model.Order;
+import com.tensionsoft.buber.persistence.model.User;
 
 
 import java.sql.Date;
@@ -72,7 +70,7 @@ public class Constants {
         fakeKatya.setEmail("wkrja@gmail.com");
         fakeKatya.setReputation(0);
         fakeKatya.setPhoneNumber("1234");
-        fakeKatya.setStatus(ClientStatus.INACTIVE);
+        fakeKatya.setStatus(User.Status.INACTIVE);
         fakeKatya.setTripsNumber(12);
         fakeKatya.setLocation(fakeLocation0);
         fakeKatya.setIsMuted(false);
@@ -86,7 +84,7 @@ public class Constants {
         fakeYan.setEmail("goliidopter@gmail.com");
         fakeYan.setReputation(1000);
         fakeYan.setPhoneNumber("4321");
-        fakeYan.setStatus(DriverStatus.INACTIVE);
+        fakeYan.setStatus(User.Status.INACTIVE);
         fakeYan.setTripsNumber(13);
         fakeKatya.setLocation(fakeLocation1);
         fakeYan.setIsMuted(false);
@@ -110,7 +108,7 @@ public class Constants {
         fakeOrder0.setDestination(fakeLocation2);
         fakeOrder0.setDate(new Date(System.currentTimeMillis()));
         fakeOrder0.setMoney("90");
-        fakeOrder0.setStatus(Order.OrderStatus.DONE);
+        fakeOrder0.setStatus(Order.Status.DONE);
 
 
         fakeOrder1.setId(1L);
@@ -120,7 +118,7 @@ public class Constants {
         fakeOrder1.setDestination(fakeLocation4);
         fakeOrder1.setDate(new Date(System.currentTimeMillis()));
         fakeOrder1.setMoney("100");
-        fakeOrder1.setStatus(Order.OrderStatus.DONE);
+        fakeOrder1.setStatus(Order.Status.DONE);
 
         fakeOrder2.setId(2L);
         fakeOrder2.setClientLogin(fakeKatya.getUsername());
@@ -129,7 +127,7 @@ public class Constants {
         fakeOrder2.setDestination(fakeLocation5);
         fakeOrder2.setDate(new Date(System.currentTimeMillis()));
         fakeOrder2.setMoney("20");
-        fakeOrder2.setStatus(Order.OrderStatus.ACCEPTED);
+        fakeOrder2.setStatus(Order.Status.ACCEPTED);
     }
 
     //Car
